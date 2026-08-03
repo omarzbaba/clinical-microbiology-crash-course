@@ -2,8 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<!--
+  Clinical Microbiology - One-Day Crash Course
+  Copyright (c) 2026 Omar Z. Baba (OZB). All rights reserved.
+
+  The text, curriculum, questions, cases, glossary, design system and source code of this
+  dashboard are the original work of the copyright holder and may not be reproduced,
+  redistributed or adapted without permission.
+
+  Exception: the clinical photographs in assets/derm/ are third-party works reproduced under
+  their own public-domain, CC0, CC BY or CC BY-SA licences. Each is credited beneath its
+  figure and in assets/derm-images.json, and each remains under its original licence.
+-->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
+<meta name="author" content="Omar Z. Baba (OZB)" />
+<meta name="copyright" content="Copyright (c) 2026 Omar Z. Baba (OZB). All rights reserved." />
 <meta name="description" content="An interactive Clinical Microbiology crash course with a dermatology deep dive — specimens and diagnostics, organisms, susceptibility and stewardship, syndromes, and Derm Pearls. Built for Jaina Gaudette." />
 <title>Clinical Microbiology · One-Day Crash Course</title>
 <script>/* set theme before paint to avoid flash */(function(){try{var t=localStorage.getItem('micro-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='light';}})();</script>
@@ -404,7 +418,7 @@ table.cmp{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:640
 .case-tag{ font-size:.62rem; font-weight:600; text-transform:uppercase; letter-spacing:.07em; padding:3px 9px; border-radius:99px;
   flex:0 0 auto; margin-top:2px; color:var(--c,var(--muted)); background:color-mix(in srgb, var(--c,var(--muted)) 13%, transparent) }
 .case-tag.dx{ --c:var(--dx) } .case-tag.bug{ --c:var(--bug) }
-.case-tag.abx{ --c:var(--abx) } .case-tag.syn{ --c:var(--syn) } .case-tag.mixed{ --c:var(--accent) }
+.case-tag.abx{ --c:var(--abx) } .case-tag.syn{ --c:var(--syn) } .case-tag.derm{ --c:var(--derm) } .case-tag.mixed{ --c:var(--accent) }
 .case-head h4{ font-size:1.02rem; margin-bottom:4px; font-weight:600 } .case-head p{ font-size:.85rem; color:var(--muted); line-height:1.5 }
 .case-body{ padding:8px 22px 20px }
 .case-step{ padding:16px 0; border-bottom:1px solid var(--hair) }
@@ -462,6 +476,9 @@ table.cmp{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:640
 .foot{ max-width:var(--maxw); margin:0 auto; padding:32px clamp(18px,3vw,40px) 64px; border-top:1px solid var(--hair) }
 .foot p{ font-size:.82rem; color:var(--faint); margin-bottom:8px; line-height:1.5 }
 .foot p:first-child{ color:var(--muted) }
+.copyright{ margin-top:14px; padding-top:14px; border-top:1px solid var(--hair);
+  font-size:.76rem; color:var(--faint); line-height:1.55 }
+.copyright strong{ color:var(--muted); font-weight:600 }
 .to-top{ position:fixed; right:22px; bottom:22px; width:42px; height:42px; border-radius:11px; z-index:50;
   background:var(--surface); color:var(--text); border:1px solid var(--border-2); cursor:pointer; font-size:1.1rem;
   box-shadow:var(--shadow-lg); transition:transform var(--dur-fast), color var(--dur-fast) }
@@ -5861,6 +5878,15 @@ table.cmp{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:640
 
 <p class="muted-note">Practice varies by institution and by region: available media, reference laboratory arrangements, molecular assay menus, endemic organisms, and local resistance patterns all differ. Where this section describes what to request, treat it as the conversation to have with your own microbiology laboratory rather than a universal protocol. Antimicrobial selection here is deliberately described at the level of drug classes and principles; specific agents, doses, and durations should come from current guidance and, for the less common organisms, from infectious diseases consultation.</p>
 
+      <h3 class="mt24 reveal">Try it &mdash; derm cases</h3>
+      <p class="section-sub reveal">Three scenarios that turn on the laboratory decision rather than the morphology. Work each step before revealing it.</p>
+      <div class="reveal" data-case-slot="derm"></div>
+
+      <h3 class="mt24 reveal">Quick checkpoint</h3>
+      <p class="section-sub reveal">Four fast checks. The full dermatology bank lives in the <a href="#quiz" style="color:var(--accent)">quiz center</a> under the Derm pearls filter.</p>
+      <div class="reveal" data-checkpoint="derm"></div>
+
+
       <h3 class="mt24 reveal">References &amp; further reading</h3>
       <p class="section-sub reveal">Primary guidance and reputable clinical references for the material above. Every link was checked and resolves at time of build. Antimicrobial choice, susceptibility interpretation and dosing are institution- and region-dependent — always confirm against your local antibiogram and current guidance.</p>
 
@@ -5939,6 +5965,7 @@ table.cmp{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:640
           <button class="chip" data-filter="bug">Organisms</button>
           <button class="chip" data-filter="abx">Susceptibility</button>
           <button class="chip" data-filter="syn">Syndromes</button>
+          <button class="chip" data-filter="derm">Derm pearls</button>
         </div>
         <div class="scoreboard">
           <span>Score <b id="qScore">0</b> / <b id="qAnswered">0</b></span>
@@ -6029,6 +6056,7 @@ table.cmp{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:640
     <footer class="foot">
       <p><strong>Clinical Microbiology — One-Day Crash Course.</strong> With a dermatology deep dive. Built for Jaina Gaudette.</p>
       <p class="muted-note">Educational synthesis for medical-student teaching. Not a clinical protocol, and not a substitute for your institution’s policies, local antibiogram, CLSI or EUCAST breakpoints, or current IDSA guidance. Antimicrobial choice and dosing must be confirmed against local practice before acting on a patient.</p>
+      <p class="copyright">&copy; 2026 <strong>Omar Z. Baba (OZB)</strong>. All rights reserved. The curriculum, written content, questions, cases, glossary, design system and source code of this dashboard are original work and may not be reproduced, redistributed or adapted without permission. The clinical photographs are third-party works reproduced under their own public-domain, CC0, CC BY or CC BY-SA licences and remain under those licences &mdash; each is credited beneath its figure.</p>
     </footer>
   </main>
 </div>
@@ -6041,7 +6069,7 @@ table.cmp{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:640
 const $ = (s,r=document)=>r.querySelector(s);
 const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
 const KEYS = ['A','B','C','D','E'];
-const PILLAR_NAME = { dx:'Specimens & diagnostics', bug:'Organisms', abx:'Susceptibility', syn:'Syndromes' };
+const PILLAR_NAME = { dx:'Specimens & diagnostics', bug:'Organisms', abx:'Susceptibility', syn:'Syndromes', derm:'Derm pearls' };
 
 /* ============================================================
    DATA — QUESTIONS
@@ -6622,6 +6650,230 @@ const QUESTIONS = [
     "explain": "Persistent bacteremia despite an in vitro susceptible organism and adequate drug exposure almost always means an undrained or unremoved focus, so the priority is echocardiography, imaging, and removal of intravascular hardware.",
     "wrong": "Dose escalation, retesting a susceptible isolate, and adding rifampin all address the drug when the problem is anatomic; rifampin in particular is not a substitute for source control.",
     "pearl": "When a susceptible organism will not clear, the failure is usually surgical rather than pharmacologic."
+  },
+  {
+    "id": "dp1",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "A 62-year-old man has a venous leg ulcer that has been open for four months. The wound bed is granular with adherent slough and a faint odor, and the surrounding skin now shows expanding tender erythema. You want a specimen that will tell you what is actually infecting the tissue rather than what is merely living on the surface. Which specimen best serves that purpose?",
+    "opts": [
+      "A surface swab of the ulcer bed taken after saline cleansing, for aerobic and anaerobic culture",
+      "A swab of the crust lifted from the ulcer margin, for Gram stain and routine bacterial culture",
+      "A punch biopsy from the advancing ulcer edge, with tissue submitted fresh in sterile saline for culture",
+      "Curetted slough from the ulcer base submitted in formalin for culture and special stains"
+    ],
+    "answer": 2,
+    "explain": "Chronic wounds are always colonized, so a surface swab reports the surface flora rather than the pathogen invading tissue. Tissue obtained by biopsy and sent fresh in sterile saline samples the compartment where true infection lives.",
+    "wrong": "Both swab options recover colonizers and will generate antibiotic pressure against organisms that are not causing disease. The formalin option is the most tempting trap for anyone who forgets that fixed tissue is sterile and permanently unculturable.",
+    "pearl": "For a chronic wound, culture tissue, not the surface. Swabs answer a question you did not ask."
+  },
+  {
+    "id": "dp2",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "An 8-year-old girl has a scaly, boggy occipital scalp patch with broken hairs and occipital lymphadenopathy. Under a Wood lamp in a darkened room, the scalp shows no fluorescence. How should this Wood lamp result be interpreted?",
+    "opts": [
+      "Tinea capitis is not excluded, because Trichophyton tonsurans does not fluoresce under a Wood lamp",
+      "Tinea capitis is effectively excluded, because scalp dermatophytes reliably fluoresce blue-green",
+      "The absence of fluorescence supports seborrheic dermatitis, since fungal scalp disease always fluoresces",
+      "The absence of fluorescence supports alopecia areata, since inflammatory infection would fluoresce"
+    ],
+    "answer": 0,
+    "explain": "Trichophyton tonsurans is an endothrix organism that does not fluoresce, and it is the dominant cause of tinea capitis in much of North America. A dark Wood lamp examination therefore has essentially no power to exclude the diagnosis.",
+    "wrong": "The three remaining options all rest on the outdated assumption that scalp dermatophytes fluoresce; that behavior belongs mainly to certain Microsporum species. The most attractive distractor is the second, which is true only for the ectothrix organisms that are now far less common in many regions.",
+    "pearl": "A non-fluorescent scalp never rules out tinea capitis. Confirm with potassium hydroxide preparation and fungal culture, not with a lamp."
+  },
+  {
+    "id": "dp3",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "The emergency department consults you on a 71-year-old woman with warm, erythematous, mildly tender skin over both lower legs that has been present for several weeks. She is afebrile with a normal white blood cell count, and two courses of oral antibiotics have produced no change. Which statement best guides your assessment?",
+    "opts": [
+      "Bilateral involvement is characteristic of streptococcal cellulitis and warrants intravenous antibiotics",
+      "Blood cultures are positive in most cellulitis cases and should be used to narrow the antibiotic",
+      "A surface swab of the intertriginous skin will reliably identify the responsible pathogen",
+      "Bilateral leg erythema is rarely cellulitis, so mimics such as stasis dermatitis deserve first consideration"
+    ],
+    "answer": 3,
+    "explain": "Cellulitis is nearly always unilateral, and a substantial fraction of presumed cellulitis, by many estimates roughly a third, turns out to be something else. Bilateral, afebrile, antibiotic-unresponsive lower-leg erythema should push stasis dermatitis, lipodermatosclerosis, and contact dermatitis to the front of the list.",
+    "wrong": "Blood cultures are positive in only a small minority of uncomplicated cellulitis cases and are not a routine diagnostic route. A surface swab of intact skin samples normal flora and cannot establish a soft tissue pathogen.",
+    "pearl": "Bilateral lower-leg cellulitis is almost never cellulitis. Ask what else is red before escalating antibiotics."
+  },
+  {
+    "id": "dp4",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "A man experiencing homelessness presents with intense generalized pruritus and linear excoriations concentrated on the trunk, with post-inflammatory hyperpigmentation over the shoulders and waist. The finger web spaces and genitalia are clear, and repeated scraping for scabies mites is negative. Where should you look to establish the diagnosis?",
+    "opts": [
+      "On the scalp hairs, where the parasite cements its eggs firmly to individual hair shafts",
+      "In the seams of the patient's clothing, where the parasite and its eggs actually reside",
+      "In the finger web spaces, where the parasite tunnels into the stratum corneum to lay eggs",
+      "On the eyelashes and eyebrows, where the parasite grips short coarse hairs with its claws"
+    ],
+    "answer": 1,
+    "explain": "Pediculus humanus corporis, the body louse, lives and lays eggs in clothing seams and moves onto the skin only to feed, so examining the garment is the diagnostic maneuver. Truncal excoriation with a clean skin examination in a person with limited access to laundering is the classic setting.",
+    "wrong": "Scalp hairs and eyelashes point to head lice and pubic lice respectively, which have different habitats and different clinical patterns. Web-space burrows describe scabies, already excluded here by repeated negative scrapings and a distribution that spares the classic sites.",
+    "pearl": "Body lice live in the clothes, not on the patient, and they vector Rickettsia prowazekii, Bartonella quintana, and Borrelia recurrentis."
+  },
+  {
+    "id": "dp5",
+    "pillar": "derm",
+    "diff": "moderate",
+    "stem": "A 41-year-old aquarium hobbyist has a violaceous nodule on the dorsal right hand that appeared six weeks after he scraped his knuckle cleaning a saltwater tank, followed by two additional nodules ascending the forearm. You plan a biopsy. What should you communicate to the microbiology laboratory when you submit the specimen?",
+    "opts": [
+      "Request fungal culture only, since standard mycobacterial media will not recover this organism",
+      "Request routine aerobic bacterial culture, since incubation at 35 to 37 degrees Celsius is adequate",
+      "Request mycobacterial culture and ask that a set be incubated at approximately 30 degrees Celsius",
+      "Request blood cultures held for four weeks, since the organism is best recovered from blood"
+    ],
+    "answer": 2,
+    "explain": "Mycobacterium marinum grows optimally near 30 degrees Celsius and may fail to grow if the laboratory incubates only at standard body temperature. Explicitly requesting mycobacterial culture with lower-temperature incubation converts a likely false-negative into a diagnosis.",
+    "wrong": "Routine aerobic culture at 35 to 37 degrees Celsius is the classic reason these cultures come back negative, which makes the second option the most seductive error. Mycobacterium marinum is a localized cutaneous and tenosynovial pathogen and is not recovered from blood cultures.",
+    "pearl": "Fish tank plus sporotrichoid nodules means you telephone the laboratory: mycobacterial culture at about 30 degrees Celsius, or you will get nothing."
+  },
+  {
+    "id": "dp6",
+    "pillar": "derm",
+    "diff": "moderate",
+    "stem": "A 19-year-old has coalescing hypopigmented, finely scaling macules across the upper back. A potassium hydroxide preparation shows short hyphae and clusters of round yeast forms. You send scale for fungal culture, and two weeks later the laboratory reports no growth. What is the best explanation?",
+    "opts": [
+      "The potassium hydroxide preparation was probably a false positive, since this organism grows readily",
+      "Bacterial overgrowth likely suppressed the isolate, so the scale should simply be recollected",
+      "The specimen was probably nonviable, so a punch biopsy sent for culture is the appropriate next step",
+      "The organism is lipid dependent and will not grow unless the medium is overlaid with oil"
+    ],
+    "answer": 3,
+    "explain": "The Malassezia species that cause tinea versicolor require exogenous long-chain fatty acids, so they will not grow on routine fungal media unless the laboratory overlays the plate with olive oil or uses a lipid-supplemented medium. The negative culture reflects the medium, not the diagnosis.",
+    "wrong": "The morphology described, short hyphae with clustered yeasts, is essentially diagnostic, so calling the potassium hydroxide preparation a false positive discards the strongest evidence you have. Repeat sampling or biopsy will fail for exactly the same reason unless the lipid requirement is addressed.",
+    "pearl": "Malassezia is lipid dependent. No oil overlay, no growth, and the culture tells you nothing about the patient."
+  },
+  {
+    "id": "dp7",
+    "pillar": "derm",
+    "diff": "moderate",
+    "stem": "You are consulted on an immunosuppressed transplant recipient with painful grouped vesicles on an erythematous base scattered across the upper chest and one arm, a distribution that is neither cleanly dermatomal nor typical of a primary varicella exanthem. A Tzanck smear from a vesicle shows multinucleated giant cells with molded nuclei. What is the correct interpretation and next step?",
+    "opts": [
+      "The smear confirms varicella zoster virus, because its giant cells are larger than those of herpes simplex",
+      "The smear cannot separate the herpesviruses; type-specific polymerase chain reaction is needed, and airborne plus contact precautions should start pending the result",
+      "The smear confirms herpes simplex virus, and culture of a crusted lesion will establish the specific type",
+      "The smear excludes both herpesviruses, so a bacterial cause of the vesicular eruption should be sought"
+    ],
+    "answer": 1,
+    "explain": "A Tzanck smear shows the cytopathic changes common to herpes simplex virus and varicella zoster virus and cannot distinguish them. In an immunosuppressed host with a non-dermatomal vesicular eruption, disseminated varicella zoster is on the table, so airborne plus contact precautions are appropriate until type-specific polymerase chain reaction resolves which virus it is.",
+    "wrong": "Giant cell size is not a reliable discriminator between the two viruses, which makes the first option the most attractive trap. Crusted lesions are the lowest-yield site for both culture and polymerase chain reaction, so sampling a fresh vesicle base matters as much as choosing the assay.",
+    "pearl": "Tzanck says herpesvirus, not which one. In an immunosuppressed patient, isolate for possible disseminated varicella zoster while the polymerase chain reaction is pending."
+  },
+  {
+    "id": "dp8",
+    "pillar": "derm",
+    "diff": "moderate",
+    "stem": "A 58-year-old woman has thickened, yellow, distally dystrophic great toenails with subungual debris. Nail clippings sent for periodic acid-Schiff histology show fungal hyphae within the nail plate, while fungal culture of subungual material shows no growth after four weeks. How should you reconcile these results?",
+    "opts": [
+      "Periodic acid-Schiff staining is more sensitive than culture, so onychomycosis is established despite no growth",
+      "A negative culture outweighs positive histology, so the diagnosis should be considered effectively excluded",
+      "Both tests must be positive before systemic antifungal therapy can reasonably be considered appropriate",
+      "The positive stain most likely reflects keratin artifact, so repeat culture on selective media is required"
+    ],
+    "answer": 0,
+    "explain": "Periodic acid-Schiff staining of nail clippings is consistently more sensitive than culture, because it detects fungal elements whether or not they remain viable after sampling and transport. A negative culture in the face of positive histology is expected and does not refute the diagnosis.",
+    "wrong": "Requiring both tests to be positive would leave a large fraction of genuine onychomycosis untreated. The important caveat is the reverse of the stem: only culture, or molecular identification, names the organism, which matters when a nondermatophyte mold or yeast would change drug selection.",
+    "pearl": "Periodic acid-Schiff proves there is a fungus; culture tells you which fungus. You often need both answers for different reasons."
+  },
+  {
+    "id": "dp9",
+    "pillar": "derm",
+    "diff": "moderate",
+    "stem": "A 3-year-old boy is febrile and miserable with diffuse tender erythema, superficial flaccid peeling in the flexures, and radial perioral crusting. The conjunctivae, oral mucosa, and genital mucosa are entirely uninvolved. A frozen section of the blister roof is obtained. Which histologic finding would support staphylococcal scalded skin syndrome rather than toxic epidermal necrolysis?",
+    "opts": [
+      "A subepidermal split with full-thickness epidermal necrosis",
+      "A subepidermal split with a dense neutrophilic dermal infiltrate",
+      "A subcorneal, intraepidermal split occurring at the granular layer",
+      "A split at the dermal-epidermal junction with an intact overlying granular layer"
+    ],
+    "answer": 2,
+    "explain": "Exfoliative toxin cleaves desmoglein 1, producing a high subcorneal split at the granular layer, and mucous membranes are spared because desmoglein 3 compensates there. Toxic epidermal necrolysis instead produces a subepidermal split with full-thickness keratinocyte necrosis and prominent mucosal involvement.",
+    "wrong": "The three subepidermal or junctional options all describe a deep plane of cleavage, which is the pattern of toxic epidermal necrolysis and of the immunobullous diseases. Option 1 is attractive because a neutrophilic infiltrate feels infectious, but the plane is still wrong: in scalded skin the toxin cleaves desmoglein 1 high in the epidermis, so the split is subcorneal.",
+    "pearl": "High split and clean mucosa means staphylococcal scalded skin syndrome; deep split and sick mucosa means toxic epidermal necrolysis."
+  },
+  {
+    "id": "dp10",
+    "pillar": "derm",
+    "diff": "moderate",
+    "stem": "A 24-year-old woman with long-standing atopic dermatitis reports abrupt worsening over 48 hours with fever and unusual pain. Examination shows strikingly monomorphic, punched-out, 2 to 3 millimeter erosions with scalloped borders across the face and neck, superimposed on her eczematous skin. She has completed five days of oral cephalexin for presumed impetiginized eczema without improvement. What is the most likely diagnosis and the best confirmatory test?",
+    "opts": [
+      "Impetiginization by Staphylococcus aureus, confirmed by surface swab of the crusted areas for culture",
+      "Eczema herpeticum, confirmed by polymerase chain reaction from the base of a freshly de-roofed lesion",
+      "Acute allergic contact dermatitis, confirmed by patch testing once the acute inflammation has settled",
+      "Crusted scabies, confirmed by broad skin scrapings from several sites examined by light microscopy"
+    ],
+    "answer": 1,
+    "explain": "Monomorphic punched-out erosions with disproportionate pain and fever in atopic dermatitis are eczema herpeticum until proven otherwise, and antibacterial failure supports that. Polymerase chain reaction from a fresh lesion base is the fastest and most sensitive confirmation, and antiviral therapy should not wait for it.",
+    "wrong": "Impetiginization is the standard misdiagnosis and is the most attractive distractor, but it produces polymorphic honey-crusted lesions and would have responded to cephalexin. Contact dermatitis is not febrile and not monomorphically eroded, and crusted scabies presents with hyperkeratotic plaques rather than punched-out erosions.",
+    "pearl": "Monomorphic punched-out erosions in atopic dermatitis are eczema herpeticum, not impetigo. Treat while you wait for the polymerase chain reaction."
+  },
+  {
+    "id": "dp11",
+    "pillar": "derm",
+    "diff": "integrative",
+    "stem": "A 44-year-old agricultural worker who emigrated from a tropical region has a grossly swollen, deformed left foot with multiple draining sinus tracts, present for six years and following a thorn injury. Gauze pressed to a sinus collects tiny firm grains. Histology confirms grains within suppurative granulomas. Which determination most directly drives therapy?",
+    "opts": [
+      "Grain color alone separates the two forms, so treatment can be selected from gross appearance",
+      "Both forms respond to prolonged antifungal therapy, so precise identification changes little",
+      "Plain radiographs demonstrating bone involvement distinguish the forms and direct drug choice",
+      "Whether the grains are fungal or actinomycetous, since antifungal and antibacterial therapy differ entirely"
+    ],
+    "answer": 3,
+    "explain": "Eumycetoma is caused by true fungi and requires prolonged systemic antifungal therapy, whereas actinomycetoma is caused by aerobic actinomycetes such as Nocardia or Actinomadura and requires prolonged antibacterial therapy. Both produce grains and look identical clinically, so grain examination with appropriate stains and culture, or molecular identification, is what selects the drug class.",
+    "wrong": "Grain color offers only a soft hint and is not reliable enough to commit a patient to years of therapy, which makes the first option the most tempting shortcut. Radiographs define the extent of bone destruction and help stage the disease, but they say nothing about whether the pathogen is a fungus or a bacterium.",
+    "pearl": "Mycetoma grains all look the same to the eye. Fungus or actinomycete is the only question that changes the prescription."
+  },
+  {
+    "id": "dp12",
+    "pillar": "derm",
+    "diff": "integrative",
+    "stem": "You are consulted urgently on a patient on day 12 of neutropenia after induction chemotherapy for acute leukemia, who has developed a firm, tender, dusky plaque on the thigh with a central necrotic eschar and a violaceous rim over 24 hours. Which action is most appropriate now?",
+    "opts": [
+      "Biopsy immediately, dividing the tissue between formalin for histology and sterile saline for culture",
+      "Swab the eschar surface for bacterial and fungal culture and adjust therapy when results return",
+      "Obtain magnetic resonance imaging first and proceed to biopsy only if deep involvement is demonstrated",
+      "Place the entire specimen in formalin, since special stains alone will identify the responsible organism"
+    ],
+    "answer": 0,
+    "explain": "A necrotic eschar in a neutropenic host is an emergency, since angioinvasive molds such as Mucorales, Fusarium, and Aspergillus and bacterial causes such as ecthyma gangrenosum from Pseudomonas all present this way and demand different therapy. Splitting the specimen gives you same-day morphologic information from histology while preserving viable tissue for the culture that names the organism and provides susceptibilities.",
+    "wrong": "A surface swab samples eschar and colonizers rather than the angioinvaded deep tissue, and imaging first simply delays a diagnosis measured in hours. Sending everything in formalin is the classic irreversible error: histology may suggest a broad category such as aseptate ribbon-like hyphae, but no isolate, no species, and no susceptibilities are ever recoverable.",
+    "pearl": "Necrotic eschar plus neutropenia means biopsy today, and the specimen gets split: formalin for the eye, sterile saline for the plate."
+  },
+  {
+    "id": "dp13",
+    "pillar": "derm",
+    "diff": "integrative",
+    "stem": "A 35-year-old landscaper has an ulcerated nodule on the right index finger with three additional subcutaneous nodules ascending in a linear chain along the forearm lymphatics. He handles rose bushes and sphagnum moss at work, and two weeks before the nodule appeared he skinned rabbits after a hunting trip. He is otherwise well and afebrile. What is the best diagnostic approach?",
+    "opts": [
+      "Empiric therapy with an oral azole antifungal, since Sporothrix is the only cause of this pattern",
+      "A surface swab of the ulcerated nodule submitted for routine bacterial culture and Gram stain",
+      "Biopsy for fungal, mycobacterial and bacterial culture, naming both exposures and flagging possible tularemia so the laboratory can take containment precautions",
+      "Serologic testing for Sporothrix and Francisella alone, to select organism-directed therapy without a biopsy"
+    ],
+    "answer": 2,
+    "explain": "Ascending nodular lymphangitis is a pattern with a differential, not a diagnosis: Sporothrix, Mycobacterium marinum, Nocardia brasiliensis, Leishmania and Francisella tularensis all produce it. Tissue culture covering fungi, mycobacteria and bacteria is required, and because Francisella is a recognized laboratory-acquired infection hazard, naming that suspicion on the request lets the laboratory handle the specimen under appropriate containment.",
+    "wrong": "Treating empirically for Sporothrix assumes the answer and misses the rest of the differential. A surface swab samples colonizers rather than the deep process. Serology alone cannot speciate, does not cover the whole differential, and would not yield an isolate to guide therapy.",
+    "pearl": "Ascending nodules are a differential, not a diagnosis. Take tissue, name every exposure on the request, and say so explicitly if tularemia is possible so the laboratory can protect its staff."
+  },
+  {
+    "id": "dp14",
+    "pillar": "derm",
+    "diff": "integrative",
+    "stem": "A 38-year-old man with untreated human immunodeficiency virus infection and a CD4 count of 40 cells per microliter has 15 friable, dome-shaped violaceous papules and nodules on the trunk and arms, several bleeding with minor trauma. He has fevers, night sweats, and two young cats at home. What is the most important next step?",
+    "opts": [
+      "Start antiretroviral therapy and observe the lesions, since they almost certainly represent Kaposi sarcoma",
+      "Biopsy with Warthin-Starry staining, because bacillary angiomatosis is bacterial and fully curable",
+      "Begin empiric liposomal chemotherapy, since biopsy of vascular lesions rarely alters the management",
+      "Send human herpesvirus 8 serology, which reliably separates the two entities without a biopsy"
+    ],
+    "answer": 1,
+    "explain": "Bacillary angiomatosis from Bartonella henselae or Bartonella quintana is clinically indistinguishable from Kaposi sarcoma in advanced human immunodeficiency virus infection, and the cat exposure with systemic symptoms raises it substantially. Biopsy with Warthin-Starry silver staining shows clumped bacilli and identifies a bacterial disease that is cured with antibiotics, whereas Kaposi sarcoma is a herpesvirus-driven neoplasm managed entirely differently.",
+    "wrong": "Assuming Kaposi sarcoma and treating with antiretroviral therapy or chemotherapy leaves a curable and potentially disseminating bacterial infection untreated, which is why the first and third options are the dangerous ones. Human herpesvirus 8 serology has poor discriminating value in this setting, since seroprevalence is high in populations at risk and a positive result does not establish that these particular lesions are Kaposi sarcoma.",
+    "pearl": "Every friable vascular papule in advanced human immunodeficiency virus infection gets a biopsy with Warthin-Starry, because one of the two possibilities is curable with antibiotics."
   }
 ];
 
@@ -6753,6 +7005,70 @@ const CHECKPOINTS = [
     "explain": "Testing formed stool or performing a test of cure identifies carriers rather than disease and leads to unnecessary treatment, isolation, and antibiotic exposure. Only unformed stool from a symptomatic patient should be submitted.",
     "wrong": "Both affirmative answers test an asymptomatic patient, and swapping in a rectal swab does not fix the underlying problem of testing someone without diarrhea.",
     "pearl": "If the stool holds its shape, do not send it, and never test for cure."
+  },
+  {
+    "id": "dpc1",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "A patient has a chronic non-healing leg ulcer that you suspect is infected. What is the most informative specimen to send to the microbiology laboratory?",
+    "opts": [
+      "A dry surface swab rolled across the ulcer bed",
+      "A swab of the exudate collected from the dressing",
+      "Tissue from the debrided ulcer base or a deep biopsy",
+      "A swab of the surrounding intact skin margin"
+    ],
+    "answer": 2,
+    "explain": "Chronic wounds are always colonized, so anything sampled from the surface grows skin and environmental flora regardless of whether the ulcer is infected. Debrided deep tissue or a biopsy samples the organisms that are actually invading and is what should guide therapy.",
+    "wrong": "All three swab options sample the colonized surface or the dressing rather than infected tissue, and a swab of intact skin margin samples normal flora. Culturing any of them tends to produce a list of colonizers that drives unnecessary broad-spectrum antibiotics.",
+    "pearl": "For a chronic wound, culture tissue, not a swab. A surface swab answers a question nobody asked."
+  },
+  {
+    "id": "dpc2",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "A patient with obesity and diabetes has well-demarcated, finely wrinkled brown patches in both axillae and the inguinal folds. Under a Wood lamp, the involved skin fluoresces a distinct coral-red. What does this finding indicate?",
+    "opts": [
+      "Tinea cruris caused by Trichophyton rubrum, which elaborates a red fluorescent pigment",
+      "Inverse psoriasis, in which the thin scale takes on an orange-red hue under ultraviolet light",
+      "Pseudomonas intertrigo, which fluoresces red because of pyoverdine pigment production",
+      "Erythrasma caused by Corynebacterium minutissimum, which produces coproporphyrin III"
+    ],
+    "answer": 3,
+    "explain": "Coral-red fluorescence under a Wood lamp comes from coproporphyrin III produced by Corynebacterium minutissimum, making it essentially diagnostic of erythrasma. It is one of the few genuinely specific Wood lamp findings in dermatology.",
+    "wrong": "Pseudomonas is the most attractive distractor, but its pigments fluoresce green rather than coral-red. Dermatophytes causing tinea cruris do not fluoresce, and psoriasis has no fluorescent signature at all.",
+    "pearl": "Coral-red equals erythrasma and coproporphyrin III; green equals Pseudomonas. Learn the two colors and the lamp earns its keep."
+  },
+  {
+    "id": "dpc3",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "You biopsy a hypopigmented, well-defined plaque with reduced sensation on the arm of a patient who lived for many years in an area where Hansen disease is endemic. Which stain should you specifically request on the tissue?",
+    "opts": [
+      "Fite stain, a modified acid-fast method suited to this weakly acid-fast organism",
+      "Routine Ziehl-Neelsen stain, the standard method for demonstrating all acid-fast organisms",
+      "Gomori methenamine silver stain, which highlights the organism within cutaneous nerves",
+      "Warthin-Starry stain, the preferred silver method for demonstrating mycobacteria in skin"
+    ],
+    "answer": 0,
+    "explain": "Mycobacterium leprae is only weakly acid-fast and its lipid envelope is stripped by the harsher decolorization of routine Ziehl-Neelsen staining, so the Fite modification is required. The organism also cannot be grown on artificial media, which makes histology with the correct stain the diagnostic backbone.",
+    "wrong": "Requesting Ziehl-Neelsen is the classic and most attractive error, and it can produce a falsely negative result on true disease. Gomori methenamine silver targets fungi, and Warthin-Starry is used for spirochetes and Bartonella rather than mycobacteria.",
+    "pearl": "Anesthetic plaque means ask for Fite, not Ziehl-Neelsen. Mycobacterium leprae will not grow on any plate, and check glucose-6-phosphate dehydrogenase before dapsone."
+  },
+  {
+    "id": "dpc4",
+    "pillar": "derm",
+    "diff": "easy",
+    "stem": "A 6-year-old boy has culture-confirmed tinea capitis with scaling, broken hairs, and mild occipital lymphadenopathy. Which therapeutic approach is appropriate?",
+    "opts": [
+      "Topical antifungal shampoo used alone daily until all visible scaling has fully resolved",
+      "Topical antifungal cream applied to the affected scalp twice daily for four to six weeks",
+      "Systemic antifungal therapy, because topical agents do not penetrate the hair shaft",
+      "Topical corticosteroid combined with antifungal cream to clear the infected hair follicles"
+    ],
+    "answer": 2,
+    "explain": "The dermatophyte resides within the hair shaft and follicle, a compartment that topical agents cannot reach in adequate concentration. Systemic antifungal therapy is therefore mandatory, with antifungal shampoo used only as an adjunct to reduce spore shedding and transmission.",
+    "wrong": "Both topical monotherapy options fail for the same anatomic reason and allow ongoing transmission to household and school contacts. Adding a topical corticosteroid does not address the organism and can blunt the inflammatory signs while the infection persists.",
+    "pearl": "Tinea capitis always needs a systemic antifungal. Shampoo is for the contacts and the classroom, not for the cure."
   }
 ];
 
@@ -7164,6 +7480,179 @@ const CASES = [
         "label": "The thing you must never do",
         "prompt": "He improves off laxatives. The oncoming team wants a repeat test 'to make sure it cleared.' What do you say?",
         "reveal": "<strong>There is no test of cure for <em>C. difficile</em>.</strong> NAAT can remain positive for weeks after clinically successful treatment, because the organism persists in the gut without causing disease. Repeat testing after improvement generates a positive result that leads to unnecessary treatment, prolonged isolation, and a label that follows the patient through future admissions. Repeat testing within the same episode is likewise low yield and is blocked outright by many laboratories. <strong>Advanced pearl:</strong> the durable solution is diagnostic stewardship built into the order entry system, such as hard stops on testing formed stool, on testing within 48 hours of laxatives, or on repeat testing within a set interval, often 7 days. These interventions reliably reduce overdiagnosis, but the specific rules differ from hospital to hospital, so learn your own institution's before you order."
+      }
+    ]
+  },
+  {
+    "slot": "derm",
+    "tagClass": "derm",
+    "tagLabel": "Derm pearls",
+    "title": "The nodules that would not settle",
+    "blurb": "A 29-year-old woman is referred with six violaceous papulonodules confined to the gray-shaded background of a forearm tattoo placed about five weeks ago. She has completed cephalexin and then doxycycline from urgent care with no improvement; two lesions now drain scant serous fluid. She is otherwise well and afebrile.",
+    "labs": [
+      {
+        "k": "Interval since tattoo",
+        "v": "5 weeks",
+        "s": ""
+      },
+      {
+        "k": "Lesion distribution",
+        "v": "Gray-wash areas only",
+        "s": ""
+      },
+      {
+        "k": "Prior antibiotics",
+        "v": "Cephalexin, then doxycycline",
+        "s": ""
+      },
+      {
+        "k": "Surface swab (urgent care)",
+        "v": "Mixed skin flora",
+        "s": ""
+      },
+      {
+        "k": "Temperature",
+        "v": "37.0 C",
+        "s": ""
+      }
+    ],
+    "steps": [
+      {
+        "label": "Frame the pattern",
+        "prompt": "The urgent care swab grew mixed skin flora and two antibacterial courses have failed. What does the timing, the distribution, and the treatment failure tell you, and why is the swab result close to meaningless?",
+        "reveal": "A nodular eruption appearing <strong>weeks</strong> after a tattoo, restricted to one ink or dilution zone, and refractory to beta-lactams and tetracyclines is the classic signature of <strong>rapidly growing non-tuberculous mycobacteria</strong> &mdash; principally the <em>Mycobacterium chelonae</em>/<em>abscessus</em> group and <em>M. fortuitum</em>. The usual vehicle is contaminated water used to dilute ink for gray wash, which is why lesions map onto the shaded areas and spare the dense black outline. The same reasoning applies to mesotherapy, injectable filler, and pedicure footbath outbreaks. A <strong>surface swab of any chronic wound grows colonizers</strong> and tells you nothing about a deep infection &mdash; it sampled the skin, not the granulomas. Sarcoidal and other tattoo granulomatous reactions and allergic pigment reactions sit in the differential, which is exactly why this needs tissue rather than another empiric antibiotic."
+      },
+      {
+        "label": "Sample correctly",
+        "prompt": "You are doing a punch biopsy today. How do you divide the specimen, and what do you have to say out loud to the laboratory before the sample leaves the room?",
+        "reveal": "Take <strong>two punches</strong>, or split one deep punch. One half goes into <strong>formalin</strong> for histology (expect suppurative granulomatous dermatitis; acid-fast stains are often negative and a negative stain never excludes NTM). The other half must go <strong>fresh, in a sterile container with a few drops of sterile <em>non-bacteriostatic</em> saline</strong> &mdash; just enough to stop it drying, not enough to float it. Bacteriostatic saline sits on the same shelf and contains a preservative that suppresses growth, so grabbing the wrong vial quietly costs you the culture. Never formalin, never gauze, never a viral transport tube. <strong>Formalin-fixed tissue can never be cultured</strong>, and that error costs the patient another biopsy. Then telephone or annotate the requisition: request <strong>mycobacterial (AFB) culture plus routine bacterial and fungal cultures</strong>, and state the clinical suspicion. The point is <em>tissue, not swab</em>."
+      },
+      {
+        "label": "Set the timeline",
+        "prompt": "The patient asks how long before you know, and whether she should start something now. What do you tell her about incubation, and what do you ask the laboratory to do once something grows?",
+        "reveal": "Manage expectations honestly. Rapid growers are only rapid relative to <em>M. tuberculosis</em> &mdash; solid media may take <strong>one to several weeks</strong>, and mycobacterial cultures are typically held far longer than routine bacterial plates before being called negative. Speciation follows, usually by molecular or mass-spectrometry methods depending on the laboratory. Critically, request <strong>susceptibility testing on the isolate</strong>: susceptibility in this group is not predictable from species alone, and <em>M. abscessus</em> in particular carries inducible macrolide resistance, so extended-incubation macrolide testing matters. Treatment is generally a <strong>multi-drug regimen guided by susceptibilities and given for months</strong>, not a single agent, and infectious diseases input is appropriate. Resist the urge to fire off yet another empiric course before the culture is drawn &mdash; it lowers yield without helping her."
+      },
+      {
+        "label": "Close the loop",
+        "prompt": "What public health and counseling steps follow, and what should you do if the culture comes back negative but the lesions persist?",
+        "reveal": "Ask where the tattoo was done and whether other clients are affected; procedure-associated NTM presents in <strong>clusters</strong>, and reporting to the local public health authority is reasonable when a common source is suspected. Advise against further procedures at that site and against topical steroids as a &quot;reaction&quot; trial while infection is unresolved. If cultures are negative but the clinical picture stands, do not assume the diagnosis is wrong: culture yield in paucibacillary granulomatous infection is imperfect. <strong>Rebiopsy with more tissue</strong>, ask the laboratory about mycobacterial PCR or sequencing on tissue, and confirm the sample was truly sent fresh. Reporting practice and available molecular assays vary by region and institution."
+      }
+    ]
+  },
+  {
+    "slot": "derm",
+    "tagClass": "derm",
+    "tagLabel": "Derm pearls",
+    "title": "A chain of nodules up the arm",
+    "blurb": "A 54-year-old man has an ulcerated nodule on the dorsum of the right index finger, present six weeks, with three tender subcutaneous nodules tracking up the forearm in a line. He keeps a home aquarium and does heavy garden work. He is afebrile and systemically well.",
+    "labs": [
+      {
+        "k": "Pattern",
+        "v": "Ascending linear nodules",
+        "s": ""
+      },
+      {
+        "k": "Duration",
+        "v": "6 weeks",
+        "s": ""
+      },
+      {
+        "k": "Exposures",
+        "v": "Aquarium water, rose gardening",
+        "s": ""
+      },
+      {
+        "k": "Systemic symptoms",
+        "v": "None",
+        "s": ""
+      },
+      {
+        "k": "Prior therapy",
+        "v": "Cephalexin x 10 days, no response",
+        "s": ""
+      }
+    ],
+    "steps": [
+      {
+        "label": "Name the pattern, not the organism",
+        "prompt": "What is this pattern called, and what belongs on the differential?",
+        "reveal": "This is <strong>ascending nodular lymphangitis</strong> (a sporotrichoid pattern): an inoculation lesion with secondary nodules marching proximally along lymphatics. It is a <em>pattern with a differential</em>, not a diagnosis. The five to hold in mind are <strong>Sporothrix schenckii</strong> (rose thorns, sphagnum moss, and cat contact in some regions), <strong>Mycobacterium marinum</strong> (aquarium or brackish water), <strong>Nocardia brasiliensis</strong> (soil), <strong>Leishmania</strong> (sandfly exposure abroad), and <strong>Francisella tularensis</strong> (rabbits, ticks). This patient has exposures pointing at two of them at once."
+      },
+      {
+        "label": "Where exactly do you cut?",
+        "prompt": "Tissue is clearly required. Which lesion do you biopsy, and how do you divide it?",
+        "reveal": "Biopsy an <strong>intact proximal nodule</strong> rather than the ulcer base &mdash; the ulcer is contaminated and often shows only necrosis, while the closed nodule holds the organism. Take a generous specimen and split it: part for histology with special stains, part fresh for culture, and &mdash; if travel makes <em>Leishmania</em> plausible &mdash; a portion for <strong>Leishmania polymerase chain reaction</strong>, which is more sensitive than smear and is what speciates. Species matters here, because it drives whether systemic therapy is needed."
+      },
+      {
+        "label": "What you say on the request slip",
+        "prompt": "The specimen is in the pot. What must the laboratory be told, and why does it change the result?",
+        "reveal": "Two things, and both change what the laboratory does. First, ask explicitly for a set incubated at <strong>about 30 degrees Celsius</strong>: <em>M. marinum</em> grows poorly at 35 to 37 degrees, so a routine mycobacterial set alone can be falsely negative. Second, if tularemia is genuinely on your list, <strong>say so on the request</strong> &mdash; <em>Francisella</em> is a well-recognized cause of laboratory-acquired infection, and the laboratory needs to handle it under containment rather than open it on the bench. Naming the exposures is not a courtesy; it is part of the test."
+      },
+      {
+        "label": "Treating before the answer arrives",
+        "prompt": "Cultures will take weeks. How does the differential shape what you do in the meantime?",
+        "reveal": "Notice that the candidate therapies belong to <em>completely different drug classes</em> &mdash; an azole for sporotrichosis, multidrug antimycobacterial therapy for <em>M. marinum</em>, a sulfonamide-based regimen for <em>Nocardia</em> &mdash; so empiric cover-everything is not realistic. In a well, afebrile patient it is usually right to wait for the isolate, treating only if he deteriorates, and to involve infectious diseases early. What is <strong>never</strong> right is reaching for a corticosteroid because the histology reads granulomatous."
+      }
+    ]
+  },
+  {
+    "slot": "derm",
+    "tagClass": "derm",
+    "tagLabel": "Derm pearls",
+    "title": "Violaceous, vascular, and not the same disease",
+    "blurb": "You are consulted on a 41-year-old man admitted with fever and weight loss. He has newly diagnosed HIV with a low CD4 count and has not yet started antiretroviral therapy. On examination there are roughly a dozen dome-shaped, friable, violaceous to red vascular papules and nodules on the face, trunk, and arms; several bleed briskly when knocked, and one on the leg has an epithelial collarette. He is a former shelter resident with cats at his prior address.",
+    "labs": [
+      {
+        "k": "CD4 count",
+        "v": "38 cells/uL",
+        "s": "crit"
+      },
+      {
+        "k": "HIV RNA",
+        "v": "High, ART-naive",
+        "s": "hi"
+      },
+      {
+        "k": "Temperature",
+        "v": "38.6 C",
+        "s": "hi"
+      },
+      {
+        "k": "Alkaline phosphatase",
+        "v": "Elevated",
+        "s": "hi"
+      },
+      {
+        "k": "Hemoglobin",
+        "v": "Low",
+        "s": "lo"
+      },
+      {
+        "k": "Oral lesions",
+        "v": "None seen",
+        "s": ""
+      }
+    ],
+    "steps": [
+      {
+        "label": "Separate the two diagnoses",
+        "prompt": "Two entities sit at the top of this differential and they look alike at the bedside. What are they, and why does getting this right matter more than usual?",
+        "reveal": "<strong>Kaposi sarcoma</strong> and <strong>bacillary angiomatosis</strong> both produce violaceous vascular papules and nodules in advanced HIV, and they are genuinely difficult to separate clinically &mdash; friability, collarettes, and mucosal or visceral involvement overlap. The stakes are asymmetric: KS is a <strong>herpesvirus-driven neoplasm</strong> (human herpesvirus 8) managed with antiretroviral therapy and, when extensive or visceral, systemic chemotherapy. <strong>Bacillary angiomatosis is a bacterial infection</strong> caused by <em>Bartonella henselae</em> or <em>Bartonella quintana</em>, and it is <strong>curable with antibiotics</strong>. Missing it means treating a treatable infection as a malignancy. The exposure history matters: cat contact (with the cat flea as vector) points to <em>B. henselae</em>, while homelessness and <strong>body lice</strong> point to <em>B. quintana</em> &mdash; and body lice, which live in clothing seams, also vector <em>Rickettsia prowazekii</em> and <em>Borrelia recurrentis</em>."
+      },
+      {
+        "label": "Biopsy and stain",
+        "prompt": "You take a punch biopsy. What do you ask the pathology laboratory for specifically, and what do you send in parallel?",
+        "reveal": "Send tissue in <strong>formalin for histology and explicitly request a <em>Warthin-Starry</em> silver stain</strong>. Both lesions are vascular proliferations on hematoxylin and eosin; bacillary angiomatosis characteristically shows a lobular vascular proliferation with neutrophils and amphophilic granular material, and Warthin-Starry demonstrates <strong>clumps of bacilli</strong>. KS is supported by spindle cells with slit-like vascular spaces and confirmed by <strong>HHV-8 (LANA-1) immunohistochemistry</strong>. Because the two coexist and mimic each other, ask for <em>both</em> workups on the same specimen. In parallel, split off a <strong>fresh sterile portion</strong> for culture &mdash; formalin-fixed tissue can never be cultured &mdash; and warn the laboratory that <em>Bartonella</em> is <strong>fastidious and slow-growing</strong>, so cultures need prolonged incubation and often still fail. Serology and tissue or blood PCR are frequently more useful than culture; availability is laboratory-dependent."
+      },
+      {
+        "label": "Look beyond the skin",
+        "prompt": "The alkaline phosphatase is up and he is febrile. What systemic assessment does each diagnosis demand?",
+        "reveal": "Neither disease is skin-limited. <strong>Bacillary angiomatosis</strong> can involve liver and spleen (peliosis hepatis), bone (painful lytic lesions, classically with <em>B. quintana</em>), lymph nodes, and central nervous system &mdash; an elevated alkaline phosphatase with fever should prompt imaging and blood cultures held for extended incubation with the laboratory alerted. <strong>Kaposi sarcoma</strong> requires assessment for oral, gastrointestinal, and pulmonary disease; oral lesions are a marker of more extensive disease, and pulmonary KS can be life-threatening. At this CD4 count you should also be actively excluding the other opportunistic causes of fever, and remembering that other disseminated infections can produce vascular-appearing cutaneous nodules in this population."
+      },
+      {
+        "label": "Treat and anticipate",
+        "prompt": "Warthin-Starry shows clumped bacilli. What changes, and what complication of starting antiretroviral therapy should you warn the team about?",
+        "reveal": "This is <strong>bacillary angiomatosis</strong>, and it is treatable. Therapy is a <strong>systemic antibacterial of the macrolide or tetracycline class</strong>, given for a <em>prolonged</em> course &mdash; typically months in advanced HIV &mdash; because short courses relapse; extend further with bone or hepatosplenic involvement. Do not curette or excise the lesions as if they were angiomas: they are friable and bleed, and the disease is systemic. Antiretroviral therapy is central to management of both entities, but flag <strong>immune reconstitution inflammatory syndrome</strong> to the primary team &mdash; KS in particular can flare paradoxically after ART is started, and coexisting KS and bacillary angiomatosis in the same patient is well described. Specific agents, timing of ART initiation, and duration are guideline- and institution-dependent; coordinate with infectious diseases and HIV services."
       }
     ]
   }

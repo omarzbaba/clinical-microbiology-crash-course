@@ -1,0 +1,81 @@
+Copyright (c) 2026 Omar Z. Baba (OZB). All rights reserved.
+
+CLINICAL MICROBIOLOGY — ONE-DAY CRASH COURSE
+An interactive educational dashboard, including the "Derm Pearls" deep dive.
+
+--------------------------------------------------------------------------
+1. ORIGINAL WORK
+--------------------------------------------------------------------------
+
+All original material in this repository is the exclusive property of the
+copyright holder. This includes, without limitation:
+
+  - the curriculum design, learning objectives and information architecture;
+  - all written teaching content, callouts, pearls and explanatory prose;
+  - the question bank, answer explanations and teaching pearls;
+  - the clinical cases and their progressive-disclosure reasoning;
+  - the glossary;
+  - the design system (colour tokens, typography, layout and components);
+  - the HTML, CSS and JavaScript source code;
+  - the selection, coordination and arrangement of all of the above,
+    which constitutes a protected compilation.
+
+No part of the original work may be reproduced, distributed, publicly
+displayed, performed, adapted, translated, or used to create derivative
+works, in whole or in part, by any means, without the prior written
+permission of the copyright holder.
+
+Viewing the published site in a web browser for personal or educational
+reading is permitted. That permission does not extend to copying,
+re-hosting, redistributing or adapting the work.
+
+--------------------------------------------------------------------------
+2. THIRD-PARTY MATERIAL (IMPORTANT EXCEPTION)
+--------------------------------------------------------------------------
+
+The clinical photographs in `assets/derm/` are NOT owned by the copyright
+holder and are NOT covered by the reservation of rights above.
+
+Each image is a third-party work reproduced from Wikimedia Commons under
+its own licence — public domain, CC0, CC BY, or CC BY-SA. Several
+originate from the U.S. CDC Public Health Image Library.
+
+Every image retains its original licence and its original author's rights.
+Attribution — author, licence, and a link to the original file page — is
+recorded for each image in `assets/derm-images.json` and is displayed
+beneath the corresponding figure in the dashboard.
+
+Anyone wishing to reuse an individual photograph must comply with that
+photograph's own licence, not with this file. In particular, images under
+CC BY-SA carry share-alike obligations that this notice does not and
+cannot override.
+
+--------------------------------------------------------------------------
+3. REFERENCED SOURCES
+--------------------------------------------------------------------------
+
+External guidelines, fact sheets and reference pages linked from the
+References section remain the property of their respective publishers
+(including IDSA, AAD, WHO, DermNet, and the publishers indexed by PubMed).
+They are linked for reference only and are not reproduced here.
+
+--------------------------------------------------------------------------
+4. NO WARRANTY / NOT MEDICAL ADVICE
+--------------------------------------------------------------------------
+
+This dashboard is an educational teaching aid. It is not a clinical
+protocol, not a substitute for institutional policy, current guidelines,
+local antibiogram data, or professional clinical judgement, and it does not
+constitute medical advice. Antimicrobial selection, susceptibility
+interpretation and dosing must be confirmed against current local guidance
+before being applied to any patient.
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY
+ARISING FROM, OUT OF, OR IN CONNECTION WITH THE WORK OR ITS USE.
+
+--------------------------------------------------------------------------
+
+For permissions and licensing enquiries, contact the copyright holder.

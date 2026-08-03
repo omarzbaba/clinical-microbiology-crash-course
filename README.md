@@ -10,6 +10,8 @@ An immersive, single-page educational **dashboard** that teaches clinical microb
 
 It is a working teaching tool — interactive cases, a scored quiz center, a searchable glossary, decision trees, pattern cards and 26 referenced clinical images — not a static study guide.
 
+© 2026 **Omar Z. Baba (OZB)**. All rights reserved. See [LICENSE](LICENSE).
+
 > **Live site:** see the **GitHub Pages** URL in the repository’s **About** panel (or the deploy section below).
 
 ---
@@ -111,6 +113,18 @@ Published from the `main` branch root:
 
 1. **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `root`.**
 2. Wait ~1 minute; the live URL appears at the top of the Pages settings and in the repo **About** panel.
+
+---
+
+## Copyright
+
+**© 2026 Omar Z. Baba (OZB). All rights reserved.**
+
+The curriculum, written content, question bank, cases, glossary, design system and source code of this dashboard — and their selection and arrangement as a compilation — are the original work of the copyright holder and may not be reproduced, redistributed or adapted without written permission. Reading the published site is permitted; copying, re-hosting or adapting it is not.
+
+**Important exception:** the clinical photographs in `assets/derm/` are *not* owned by the copyright holder. Each is a third-party work reproduced under its own public-domain, CC0, CC BY or CC BY-SA licence, retains that licence, and is credited to its original author. Reuse of any individual photograph is governed by that photograph's licence, not by this repository's. Full terms are in [LICENSE](LICENSE).
+
+This dashboard is an educational teaching aid, not a clinical protocol, and does not constitute medical advice.
 
 ---
 
