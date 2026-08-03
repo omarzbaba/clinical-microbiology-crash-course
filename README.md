@@ -1,13 +1,14 @@
 # Clinical Microbiology — One-Day Crash Course
 
-An immersive, single-page educational **dashboard** that teaches clinical microbiology to medical students on a one-day rotation, built around four pillars:
+An immersive, single-page educational **dashboard** that teaches clinical microbiology, built around four pillars plus a dermatology deep dive. Customized for **Jaina Gaudette, dermatology resident**.
 
 1. **Specimens & the diagnostic toolbox**
 2. **Reading the organisms**
 3. **Susceptibility, resistance & stewardship**
 4. **The syndrome-based approach**
+5. **Derm Pearls** — a specialty deep dive, written at resident level
 
-It is a working teaching tool — interactive cases, a scored quiz center, a searchable glossary, decision trees and pattern cards — not a static study guide.
+It is a working teaching tool — interactive cases, a scored quiz center, a searchable glossary, decision trees, pattern cards and 26 referenced clinical images — not a static study guide.
 
 > **Live site:** see the **GitHub Pages** URL in the repository’s **About** panel (or the deploy section below).
 
@@ -20,6 +21,7 @@ It is a working teaching tool — interactive cases, a scored quiz center, a sea
 - **Case Lab** — progressive-disclosure cases drawn from real laboratory calls (the 2 a.m. positive blood culture, the confused patient with a "positive" urine, the CSF that cannot wait).
 - **Searchable glossary / cheat sheet** — from Gram stain to carbapenemase; the must-know set is flagged.
 - **Decision trees** — the Gram stain shortlist, and the empiric → targeted stewardship pathway.
+- **Derm Pearls** — the flagship section, at dermatology-resident level rather than student level: the derm-micro interface (which specimen, which stain, which incubation temperature), then bacterial, mycobacterial, fungal, viral and parasitic skin infection, closing with an exposure-to-organism table, the immunocompromised host, post-procedure infection, and a consolidated "top traps" block. Includes **26 clinical images** and a verified **References** block.
 - **Final recap** — take-home points, "how to sound smart on rounds," and good questions to ask on service.
 - **Light & dark themes** (true-black dark, clean-white light), scroll-spy navigation, reading-progress bar, restrained ambient background.
 - **Accessible**: semantic HTML, keyboard navigable, `prefers-reduced-motion` respected, focus-visible states.
@@ -42,13 +44,18 @@ Then visit `http://localhost:8123`. (Opening `index.html` directly also works.)
 
 ```
 .
-├── index.html      # the entire app — HTML, CSS, and JS in one file
-├── PLANNING.md     # Phase 1: learner profile, objectives, content map, IA
-├── README.md       # this file (usage + implementation notes)
+├── index.html               # the entire app — HTML, CSS, and JS in one file
+├── assets/
+│   ├── derm/                # 26 freely-licensed clinical images
+│   └── derm-images.json     # image manifest: source, licence, author, dimensions
+├── PLANNING.md              # Phase 1: learner profile, objectives, content map, IA
+├── README.md                # this file (usage + implementation notes)
 ├── .gitignore
 └── .claude/
-    └── launch.json # local static-server config for previewing
+    └── launch.json          # local static-server config for previewing
 ```
+
+`index.html` is self-contained apart from the local images in `assets/derm/`, which are served from the same origin (no external image hotlinking).
 
 Everything lives in **`index.html`**, organized top-to-bottom as:
 
@@ -90,7 +97,9 @@ Add an object to an array and it renders automatically — the hero stat counter
 
 **Long-form teaching content** is semantic HTML inside each `<section>`; edit the markup directly. The labeled callouts use `class="callout callout--why|pattern|next|pearl|adv|pitfall|dnc"` paired with a matching `<span class="tag tag--…">`.
 
-**Personalize it for a learner:** add the learner’s name to the hero lede, the sidebar chip (`.learner-meta`), and the recap — see the sibling transfusion-medicine dashboards for the pattern.
+**Personalize it for a learner:** the name appears in the hero lede, the sidebar chip (`.learner-meta` and the `JG` avatar), the recap intro, and the page metadata.
+
+**Add or swap a clinical image:** drop the file in `assets/derm/`, add an entry to `assets/derm-images.json` (`slug`, `file`, `label`, `commonsTitle`, `description`, `license`, `artist`, `sourceUrl`, `w`, `h`), then reference it in the markup as `<figure class="fig" data-img="your-slug"><figcaption>…</figcaption></figure>` — the build injects the `<img>`, its dimensions and the attribution credit. Captions must describe only what the image actually shows.
 
 **Re-theme:** all colors live in the `:root` / `[data-theme]` blocks at the top of `<style>`. The pillar hues are `--dx` (teal), `--bug` (ochre), `--abx` (rose), `--syn` (green); the chrome accent is `--accent`.
 
@@ -105,8 +114,12 @@ Published from the `main` branch root:
 
 ---
 
+## Images and licensing
+
+All 26 clinical images come from **Wikimedia Commons** under public-domain, CC0, CC BY or CC BY-SA licences (several originate from the US CDC Public Health Image Library). Each figure carries the author, licence and a link to the original file page. Images were individually vetted against their source description — during the build, four initially-selected images were rejected for showing the wrong subject (animal rather than human, or a historical illustration rather than a clinical photograph). Images are illustrative teaching examples, not images of any specific patient.
+
 ## A note on accuracy
 
-The content is an educational synthesis for medical-student teaching, written and then adversarially fact-checked for accuracy, unsafe simplification, and fabrication. It is **not** a clinical protocol and contains **no fabricated citations or invented breakpoint values**.
+The content is an educational synthesis, written and then adversarially fact-checked by independent reviewers for accuracy, unsafe simplification, fabrication and caption-image mismatch; 54 findings were identified and resolved before release. It is **not** a clinical protocol and contains **no fabricated citations or invented breakpoint values**. Every external link in the References block was fetched and confirmed to resolve at build time.
 
 Antimicrobial selection, susceptibility interpretation, and dosing are institution- and time-dependent. Always confirm against your local antibiogram, current **CLSI**/**EUCAST** breakpoints, current **IDSA** guidance, and your institution’s policies before acting on a patient. See [`PLANNING.md`](PLANNING.md) for the source bodies consulted.
