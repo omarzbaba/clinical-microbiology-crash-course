@@ -1,7 +1,7 @@
-Copyright (c) 2026 Omar Z. Baba (OZB). All rights reserved.
+Copyright (c) 2026 Omar Z Baba, MD. All rights reserved.
 
 CLINICAL MICROBIOLOGY — ONE-DAY CRASH COURSE
-An interactive educational dashboard, including the "Derm Pearls" deep dive.
+An interactive educational dashboard, including the Derm Pearls deep dive.
 
 --------------------------------------------------------------------------
 1. ORIGINAL WORK
@@ -37,11 +37,11 @@ The clinical photographs in `assets/derm/` are NOT owned by the copyright
 holder and are NOT covered by the reservation of rights above.
 
 Each image is a third-party work reproduced from Wikimedia Commons under
-its own licence — public domain, CC0, CC BY, or CC BY-SA. Several
+its own licence - public domain, CC0, CC BY, or CC BY-SA. Several
 originate from the U.S. CDC Public Health Image Library.
 
 Every image retains its original licence and its original author's rights.
-Attribution — author, licence, and a link to the original file page — is
+Attribution - author, licence, and a link to the original file page - is
 recorded for each image in `assets/derm-images.json` and is displayed
 beneath the corresponding figure in the dashboard.
 
@@ -54,21 +54,19 @@ cannot override.
 3. REFERENCED SOURCES
 --------------------------------------------------------------------------
 
-External guidelines, fact sheets and reference pages linked from the
-References section remain the property of their respective publishers
-(including IDSA, AAD, WHO, DermNet, and the publishers indexed by PubMed).
-They are linked for reference only and are not reproduced here.
+External guidelines, fact sheets and reference pages linked from this work
+remain the property of their respective publishers. They are linked for
+reference only and are not reproduced here.
 
 --------------------------------------------------------------------------
 4. NO WARRANTY / NOT MEDICAL ADVICE
 --------------------------------------------------------------------------
 
 This dashboard is an educational teaching aid. It is not a clinical
-protocol, not a substitute for institutional policy, current guidelines,
-local antibiogram data, or professional clinical judgement, and it does not
-constitute medical advice. Antimicrobial selection, susceptibility
-interpretation and dosing must be confirmed against current local guidance
-before being applied to any patient.
+protocol, not a substitute for institutional policy, current guidelines or
+professional clinical judgement, and it does not constitute medical advice.
+Clinical decisions must be confirmed against current local guidance before
+being applied to any patient.
 
 THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

@@ -10,9 +10,10 @@ An immersive, single-page educational **dashboard** that teaches clinical microb
 
 It is a working teaching tool — interactive cases, a scored quiz center, a searchable glossary, decision trees, pattern cards and 26 referenced clinical images — not a static study guide.
 
-© 2026 **Omar Z. Baba (OZB)**. All rights reserved. See [LICENSE](LICENSE).
 
 > **Live site:** see the **GitHub Pages** URL in the repository’s **About** panel (or the deploy section below).
+
+© 2026 **Omar Z Baba, MD**. All rights reserved. See [LICENSE](LICENSE).
 
 ---
 
@@ -116,15 +117,6 @@ Published from the `main` branch root:
 
 ---
 
-## Copyright
-
-**© 2026 Omar Z. Baba (OZB). All rights reserved.**
-
-The curriculum, written content, question bank, cases, glossary, design system and source code of this dashboard — and their selection and arrangement as a compilation — are the original work of the copyright holder and may not be reproduced, redistributed or adapted without written permission. Reading the published site is permitted; copying, re-hosting or adapting it is not.
-
-**Important exception:** the clinical photographs in `assets/derm/` are *not* owned by the copyright holder. Each is a third-party work reproduced under its own public-domain, CC0, CC BY or CC BY-SA licence, retains that licence, and is credited to its original author. Reuse of any individual photograph is governed by that photograph's licence, not by this repository's. Full terms are in [LICENSE](LICENSE).
-
-This dashboard is an educational teaching aid, not a clinical protocol, and does not constitute medical advice.
 
 ---
 
@@ -137,3 +129,15 @@ All 26 clinical images come from **Wikimedia Commons** under public-domain, CC0,
 The content is an educational synthesis, written and then adversarially fact-checked by independent reviewers for accuracy, unsafe simplification, fabrication and caption-image mismatch; 54 findings were identified and resolved before release. It is **not** a clinical protocol and contains **no fabricated citations or invented breakpoint values**. Every external link in the References block was fetched and confirmed to resolve at build time.
 
 Antimicrobial selection, susceptibility interpretation, and dosing are institution- and time-dependent. Always confirm against your local antibiogram, current **CLSI**/**EUCAST** breakpoints, current **IDSA** guidance, and your institution’s policies before acting on a patient. See [`PLANNING.md`](PLANNING.md) for the source bodies consulted.
+
+---
+
+## Copyright
+
+**© 2026 Omar Z Baba, MD. All rights reserved.**
+
+The curriculum, written content, question bank, cases, glossary, design system and source code of this dashboard — and their selection and arrangement as a compilation — are the original work of the copyright holder and may not be reproduced, redistributed or adapted without written permission. Reading the published site is permitted; copying, re-hosting or adapting it is not.
+
+**Important exception:** the clinical photographs in `assets/derm/` are *not* owned by the copyright holder. Each is a third-party work reproduced under its own public-domain, CC0, CC BY or CC BY-SA licence, retains that licence, and is credited to its original author. Reuse of any individual photograph is governed by that photograph's licence, not by this repository's.
+
+Full terms are in [LICENSE](LICENSE). This dashboard is an educational teaching aid, not a clinical protocol, and does not constitute medical advice.
